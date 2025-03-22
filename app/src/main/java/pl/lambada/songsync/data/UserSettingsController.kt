@@ -22,7 +22,7 @@ class UserSettingsController(private val dataStore: DataStore<Preferences>) {
 
     var selectedProvider by mutableStateOf(
         Providers.entries
-            .find { it.displayName == dataStore.get(selectedProviderKey, Providers.SPOTIFY.displayName) }!!
+            .find { it.displayName == dataStore.get(selectedProviderKey, Providers.LRCLIB.displayName) }!!
     )
         private set
 

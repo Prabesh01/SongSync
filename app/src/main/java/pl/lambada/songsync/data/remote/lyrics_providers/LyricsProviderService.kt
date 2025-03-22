@@ -62,26 +62,27 @@ class LyricsProviderService {
     suspend fun getSongInfo(query: SongInfo, offset: Int = 0, provider: Providers): SongInfo? {
         return try {
             when (provider) {
-                Providers.SPOTIFY -> spotifyAPI.getSongInfo(query, offset)
-                Providers.LRCLIB -> LRCLibAPI().getSongInfo(query, offset).also {
-                    lrcLibID = it?.lrcLibID ?: 0
-                } ?: throw NoTrackFoundException()
+                // Providers.SPOTIFY -> spotifyAPI.getSongInfo(query, offset)
+                Providers.LRCLIB -> LRCLibAPI().getSongInfo(query, offset)
+                // .also {
+                //   lrcLibID = it?.lrcLibID ?: 0
+                // } ?: throw NoTrackFoundException()
 
-                Providers.NETEASE -> NeteaseAPI().getSongInfo(query, offset).also {
-                    neteaseID = it?.neteaseID ?: 0
-                } ?: throw NoTrackFoundException()
+                // Providers.NETEASE -> NeteaseAPI().getSongInfo(query, offset).also {
+                //     neteaseID = it?.neteaseID ?: 0
+                // } ?: throw NoTrackFoundException()
 
-                Providers.QQMUSIC -> QQMusicAPI().getSongInfo(query, offset).also {
-                    qqPayload = it?.qqPayload ?: ""
-                } ?: throw NoTrackFoundException()
+                // Providers.QQMUSIC -> QQMusicAPI().getSongInfo(query, offset).also {
+                //     qqPayload = it?.qqPayload ?: ""
+                // } ?: throw NoTrackFoundException()
 
-                Providers.APPLE -> AppleAPI().getSongInfo(query, offset).also {
-                    appleID = it?.appleID ?: 0
-                } ?: throw NoTrackFoundException()
+                // Providers.APPLE -> AppleAPI().getSongInfo(query, offset).also {
+                //     appleID = it?.appleID ?: 0
+                // } ?: throw NoTrackFoundException()
 
-                Providers.MUSIXMATCH -> MusixmatchAPI().getSongInfo(query, offset).also {
-                    musixmatchSongInfo = it
-                } ?: throw NoTrackFoundException()
+                // Providers.MUSIXMATCH -> MusixmatchAPI().getSongInfo(query, offset).also {
+                //     musixmatchSongInfo = it
+                // } ?: throw NoTrackFoundException()
             }
         } catch (e: Exception) {
             when (e) {
@@ -107,22 +108,22 @@ class LyricsProviderService {
         unsyncedFallbackMusixmatch: Boolean = true
     ): String? {
         return when (provider) {
-            Providers.SPOTIFY -> SpotifyLyricsAPI().getSyncedLyrics(songLink!!, version)
+            // Providers.SPOTIFY -> SpotifyLyricsAPI().getSyncedLyrics(songLink!!, version)
             Providers.LRCLIB -> LRCLibAPI().getSyncedLyrics(lrcLibID)
-            Providers.NETEASE -> NeteaseAPI().getSyncedLyrics(
-                neteaseID, includeTranslationNetEase, includeRomanizationNetEase
-            )
+            // Providers.NETEASE -> NeteaseAPI().getSyncedLyrics(
+            //     neteaseID, includeTranslationNetEase, includeRomanizationNetEase
+            // )
 
-            Providers.QQMUSIC -> QQMusicAPI().getSyncedLyrics(qqPayload, multiPersonWordByWord)
+            // Providers.QQMUSIC -> QQMusicAPI().getSyncedLyrics(qqPayload, multiPersonWordByWord)
 
-            Providers.APPLE -> AppleAPI().getSyncedLyrics(
-                appleID, multiPersonWordByWord
-            )
+            // Providers.APPLE -> AppleAPI().getSyncedLyrics(
+            //     appleID, multiPersonWordByWord
+            // )
 
-            Providers.MUSIXMATCH -> MusixmatchAPI().getLyrics(
-                musixmatchSongInfo,
-                unsyncedFallbackMusixmatch
-            )
+            // Providers.MUSIXMATCH -> MusixmatchAPI().getLyrics(
+            //     musixmatchSongInfo,
+            //     unsyncedFallbackMusixmatch
+            // )
         }
     }
 }

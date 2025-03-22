@@ -13,7 +13,7 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 class LRCLibAPI {
-    private val baseURL = "https://lrclib.net/api/"
+    private val baseURL = "https://lrc.cote.ws/PrabeshSap/api/"
 
     /**
      * Searches for synced lyrics using the song name and artist name.

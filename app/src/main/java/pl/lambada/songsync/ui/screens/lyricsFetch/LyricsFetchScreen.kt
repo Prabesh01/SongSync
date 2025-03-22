@@ -185,8 +185,8 @@ fun SharedTransitionScope.LyricsFetchScreen(
                         lyricsFetchState = viewModel.lyricsFetchState,
                         animatedVisibilityScope = animatedVisibilityScope,
                         disableMarquee = viewModel.userSettingsController.disableMarquee,
-                        allowTryingAgain =
-                            viewModel.userSettingsController.selectedProvider != Providers.MUSIXMATCH
+                        allowTryingAgain = true
+                            // viewModel.userSettingsController.selectedProvider != Providers.MUSIXMATCH
                     )
 
                     is QueryStatus.Failed -> FailedDialogue(

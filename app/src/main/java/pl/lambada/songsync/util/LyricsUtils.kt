@@ -176,12 +176,12 @@ fun handleSecurityException(
  * Defines possible provider choices
  */
 enum class Providers(val displayName: String) {
-    SPOTIFY("Spotify (via SpotifyLyricsAPI)"),
-    LRCLIB("LRCLib"),
-    QQMUSIC("QQ Music"),
-    NETEASE("Netease") { val inf = 0},
-    APPLE("Apple Music"),
-    MUSIXMATCH("Musixmatch")
+    // SPOTIFY("Spotify (via SpotifyLyricsAPI)"),
+    LRCLIB("LRCLib (modified to use lrc.cote.ws)"),
+    // QQMUSIC("QQ Music"),
+    // NETEASE("Netease") { val inf = 0},
+    // APPLE("Apple Music"),
+    // MUSIXMATCH("Musixmatch")
 }
 
 // only for invoking the task and handling and reporting progress
